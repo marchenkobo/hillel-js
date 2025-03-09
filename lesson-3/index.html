@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // 3.1. Перелік типів
+
+    console.log(typeof 1);
+    console.log(typeof '1');
+    console.log(typeof undefined);
+    console.log(typeof null);
+    console.log(typeof true);
+    console.log(typeof {a: 1, b: 2});
+    console.log(typeof BigInt("0x1fffffffffffff"));
+    console.log(typeof Symbol("foo"));
+
+    // ДЗ 3.2. Числа та рядки
+
+    let value1 = prompt("Введіть перший текст");
+    let value2 = prompt("Введіть другий текст");
+    let value3 = prompt("Введіть третій текст");
+
+    console.log(`Ви ввели такий список слів: ${value1} ${value2} ${value3}`);
+
+    // ДЗ 3.3. Розкласти п'ятизначне число
+
+    let num = 10369;
+    console.log(`${num}`.split('').join(' '));
+</script>
+</body>
+</html>
