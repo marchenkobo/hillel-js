@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // TODO: Uncomment the number of the homework you want to check
+
+    // hw1();
+    // hw2();
+    // hw3();
+    // hw4();
+
+    // 4.1. Робота з prompt
+
+    function hw1() {
+        let name = prompt('Enter your name');
+        alert(`Hello, ${name} How are you?`);
+    }
+
+    // ДЗ 4.2. Перевірка числа
+
+    function hw2() {
+        let number = prompt('Enter your number');
+
+        let number1 = number[0];
+        let number2 = number[1];
+        let number3 = number[2];
+
+        if (number1 === number2 && number1 === number3 && number2 === number3) {
+            alert('Bсі цифри однакові');
+        } else if (number1 === number2 || number1 === number3 || number2 === number3) {
+            alert('Серед цифр є однакові');
+        } else {
+            alert('Bсі цифри різні');
+        }
+    }
+
+    // ДЗ 4.3. Портрет користувача
+
+    function hw3() {
+        let user = {};
+        let ciyMessage;
+        let sportMessage;
+        let complete = true;
+
+        user.birthDay = prompt('Enter your date of birth');
+
+        if (user.birthDay === null || user.birthDay === '') {
+            complete = false;
+            alert("Too bad you didn't enter your: date of birth")
+        } else {
+            user.city = prompt('Enter your city');
+            if (user.city === null || user.city === '') {
+                complete = false;
+                alert("Too bad you didn't enter your: city")
+            } else {
+                user.sport = prompt('Enter your favorite sport');
+
+                if (user.sport === null || user.sport === '') {
+                    complete = false;
+                    alert("Too bad you didn't enter your: sport")
+                }
+            }
+        }
+
+        switch (user.city) {
+            case "Київ" : ciyMessage = "Ти живеш у столиці України";
+                break;
+
+            case "Вашингтон" : ciyMessage = "Ти живеш у столиці США";
+                break;
+
+            case "Лондон" : ciyMessage = "Ти живеш у столиці Англії";
+                break;
+
+            default: ciyMessage = `Ти живеш у ${user.city}`
+        }
+
+        switch (user.sport) {
+            case "Футбол" : sportMessage = "Круто! Хочеш стати як Пеле?";
+                break;
+
+            case "Баскетбол" : sportMessage = "Круто! Хочеш стати як Джордан?";
+                break;
+
+            case "Теннис" : sportMessage = "Круто! Хочеш стати як Федерер?";
+                break;
+
+            default: sportMessage = '';
+        }
+
+        if (complete) {
+            alert(`
+            Ваш вік: ${user.birthDay}
+            ${ciyMessage}
+            ${sportMessage}
+           `)
+        }
+    }
+
+    // ДЗ 4.4. Робота з switch…case
+
+    function hw4() {
+        let numOrStr = prompt('input number or string');
+        console.log(numOrStr)
+
+        switch (true) {
+            case (numOrStr === null):
+                console.log('ви скасували');
+                break;
+
+            case (numOrStr.trim() === ''):
+                console.log('Empty String');
+                break;
+
+            case (isNaN(+numOrStr)):
+                console.log(' number is Ba_NaN')
+                break;
+
+            default: console.log('OK!');
+        }
+    }
+
+</script>
+</body>
+</html>
