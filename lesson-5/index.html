@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // TODO: Uncomment the number of the homework you want to check
+
+    // hw1();
+    // hw2();
+    // hw3();
+    // hw4();
+
+    // ДЗ 5.1. Вивід чисел до консолі
+
+    function hw1() {
+        for (let i = 0; i <= 30; i += 0.5) {
+            if (i < 20) {
+                continue
+            } else {
+                console.log(i);
+            }
+        }
+    }
+
+    // ДЗ 5.2. Розрахунок валюти
+
+    function hw2() {
+        let rate = 26;
+
+        for (let i = 0; i <= 100; i++) {
+            if (i % 10 === 0 && i !== 0) {
+                console.log(`Вартість ${i}$ (${i * rate} UAH)`);
+            }
+        }
+    }
+
+    // ДЗ 5.3. Пошук потрібних чисел
+
+    function hw3() {
+
+        let number = prompt("Enter a number");
+
+        for (let i = 18; i <= 100; i++) {
+            if (number < i ) {
+                console.log('Wrong number');
+                break;
+            } else if (i * i <= number) {
+                console.log(i);
+            }
+        }
+    }
+
+
+    // ДЗ 5.4. Просте число чи ні
+
+    function hw4() {
+        let number = prompt("Enter a number");
+        let check = true;
+
+        if (number <= 1) {
+            check = false;
+        } else {
+            for (let i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    check = false;
+                    break;
+                }
+            }
+        }
+        console.log(`${number} ${check === false ?  'не є простим числом' : 'є простим числом'}`);
+    }
+
+</script>
+</body>
+</html>
