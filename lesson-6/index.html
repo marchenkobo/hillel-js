@@ -35,6 +35,49 @@
     removeLetters("John Doe", ['e', 'h']);
     removeLetters("Lorem ipsum", [' ']);
 
+    // ДЗ 6.2. Визначення середнього арифметичного
+
+    let testArr = ['a', 'b', 10, 4, 5, true, {}, 1];
+
+    function getArithmeticMean(arr) {
+        let arrNumbers = [];
+        let sum = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            let item = arr[i];
+
+            if (typeof item === 'number') {
+                arrNumbers.push(item);
+                sum += item;
+            }
+        }
+
+        console.log(sum / arrNumbers.length);
+    }
+
+    getArithmeticMean(testArr);
+
+
+    // ДЗ 6.3. Функція видалення елементу
+
+
+    function removeElement (array, item) {
+        let res = [];
+
+        for (let i = 0; i < array.length; i++) {
+            let arrayItem = array[i];
+
+            if (array[i] !== item) {
+                res.push(arrayItem);
+            }
+        }
+
+        console.log(res);
+    }
+
+    const array = [1, 3, 4, 6, 2, 5, 7];
+
+    removeElement(array,4);
 </script>
 </body>
 </html>
