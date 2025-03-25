@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    // TODO: Uncomment the number of the homework you want to check
+    // hw1();
+    // hw2()
+    // hw3()
+
+    // ДЗ 7.1. Замикання
+    function hw1() {
+        const add = () => {
+            let number = 0;
+
+            return (newNumber) => number += newNumber;
+        }
+
+        const sum = add();
+
+        console.log(sum(4)); // 4
+        console.log(sum(6)); // 10
+        console.log(sum(10)); // 20
+        console.log(sum(7)); // 27
+    }
+
+
+
+    // ДЗ 7.2. Добуток через карування
+    function hw2() {
+        const multiply = (x) => {
+            return (y) => x * y;
+        }
+
+        console.log(multiply(8)(3)); // 24
+        console.log(multiply(2)(2)); // 4
+        console.log(multiply(5)(9)); // 45
+    }
+
+    // ДЗ 7.3. Функція з циклом
+    function hw3() {
+        (function (){
+            let maxCount = 10;
+
+            for (let i = 0; i < maxCount; i++) {
+                let value = +prompt("Введіть число більше 100");
+
+                if (!value || value < 100) {
+                    if (i !== maxCount - 1) {
+                        alert("Ще раз уважно спробуйте ввести число більше 100");
+                    } else {
+                        alert("Нажаль Ви не виконали інструкцію");
+                    }
+                } else {
+                    return alert(`Чудово! Ви ввели: ${value}`)
+                }
+            }
+        })()
+    }
+
+</script>
+</body>
+</html>
