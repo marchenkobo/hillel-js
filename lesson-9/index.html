@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    const company = {
+        sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600}],
+        development: {
+            web: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800}],
+            internals: [{name: 'Jack', salary: 1300}]
+        }
+    };
+
+    const outSource = [{company: 'Facebook', salary: 1000}, {company: 'Google', salary: 1100}];
+
+
+    function departmentSum(arr) {
+        let depSum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            depSum += arr[i].salary;
+        }
+        return depSum;
+    }
+
+    function companySum(data) {
+        let sum = 0;
+        let departments = [];
+
+        if (typeof data === 'object' && !Array.isArray(data)) {
+            for (let department in data) {
+                departments.push(department);
+            }
+
+            if (departments.length > 1) {
+                for (let i = 0; i < departments.length; i++) {
+                    sum += companySum(data[departments[i]]);
+                }
+            } else if (departments.length === 1) {
+                sum += departmentSum(data[departments[0]]);
+            }
+        } else if (Array.isArray(data)) {
+            sum += departmentSum(data);
+        } else {
+            return 'Wrong data';
+        }
+        return sum;
+    }
+
+    console.log(companySum(company));
+    console.log(companySum(outSource));
+    console.log(companySum('asd'));
+
+</script>
+</body>
+</html>
