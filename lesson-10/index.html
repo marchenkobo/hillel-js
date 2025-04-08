@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    // ДЗ 10.1. Картка користувача
+    const user = {
+        name: 'John',
+        age: 25,
+        gender: 'Male',
+        city: 'Lviv',
+        getName: function () {
+            return this.name;
+        },
+        getAge: function () {
+            return this.age;
+        },
+        getCity: function () {
+            return this.city;
+        }
+    }
+
+    console.log(user.getName());
+    console.log(user.getAge());
+    console.log(user.getCity());
+
+
+    // ДЗ 10.2. Отримання парних чисел з масиву
+
+    const numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    const newNumArr = numArr.filter(item => item % 2 === 0);
+
+    console.log(newNumArr);
+
+
+    // ДЗ 10.3. Книга контактів
+    const contactBook = {
+        contacts: [
+            {
+                name: "Олена",
+                phone: "+380671234567",
+                email: "olena@example.com"
+            },
+            {
+                name: "Ігор",
+                phone: "+380991112233",
+                email: "ihor@example.com"
+            },
+            {
+                name: "Світлана",
+                phone: "+380503334455",
+                email: "svitlana@example.com"
+            },
+            {
+                name: "Олена",
+                phone: "+380504888056",
+                email: "olena@mail.com"
+            },
+        ],
+        findContact: function (name) {
+            let contact = this.contacts.filter(contact => contact.name === name);
+            console.log(contact)
+        },
+        createContact: function () {
+            let newContact = {
+                name: prompt("Введіть ім\'я"),
+            }
+
+            if (!newContact.name) {
+                return;
+            } else {
+                newContact.phone = prompt("Введіть номер телефону") || 'Не додано';
+                newContact.email = prompt("Введіть адресу електронної пошти") || 'Не додано';
+            }
+
+            this.contacts.push(newContact);
+        }
+    };
+
+    contactBook.findContact('Олена');
+    contactBook.createContact();
+
+</script>
+</body>
+</html>
