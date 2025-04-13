@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #table,
+        .row {
+            display: grid;
+        }
+
+       .row {
+            grid-auto-flow: column;
+           text-align: center;
+        }
+
+
+      .red-color {
+          color: red;
+      }
+    </style>
+</head>
+<body>
+
+<h2>ДЗ 11.1. Таблиця піфагора</h2>
+<div id="table"></div>
+
+<h2>ДЗ 11.2. Кнопка зміни кольору</h2>
+<p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, quasi.</p>
+<button id="button" type="button">Switch color</button>
+
+<h2>ДЗ 11.3. Отримання випадкового зображення</h2>
+<p>Your lucky number for today is:</p>
+<img id="image"  width="200" src="" alt="">
+
+
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+       // ДЗ 11.1. Таблиця піфагора
+       const tableSize = 10;
+       let i = 1;
+
+        function createTable () {
+            const table = document.getElementById('table');
+            for (let j = 0; j < tableSize; j++) {
+                let row = document.createElement('div');
+                row.classList.add('row');
+
+                for (let k = 0; k < tableSize; k++) {
+                    let col = document.createElement('div');
+                    col.classList.add('col');
+                    col.innerText = i++;
+                    row.appendChild(col);
+                }
+
+                table.appendChild(row);
+            }
+        }
+
+       createTable();
+
+
+       // ДЗ 11.2. Кнопка зміни кольору
+       let text = document.getElementById('text');
+
+       document.querySelector('#button').addEventListener('click', function () {
+           text.classList.toggle('red-color');
+       });
+
+       // ДЗ 11.3. Отримання випадкового зображення
+       const randomNumber = Math.floor(Math.random() * 9) + 1
+       document.getElementById('image').src = `img/${randomNumber}.jpg`;
+   });
+
+</script>
+</body>
+</html>
