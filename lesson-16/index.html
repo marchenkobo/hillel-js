@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ДЗ 16.1. Конструктор сутності "Студент"</title>
+</head>
+<body>
+
+<script>
+    function Student(name, surname, birthYear) {
+        let currentLesson = 0;
+
+        this.name = name;
+        this.surname = surname;
+        this.birthYear = birthYear;
+        this.grades = [];
+        this.attendance = new Array(25);
+        this.getAge = function () {
+            const currentYear = new Date().getFullYear();
+            console.log(currentYear - this.birthYear);
+        }
+        this.summary = function () {
+            let gradesSum = this.grades.reduce((sum, grade) => sum + grade, 0);
+
+            let averageGrade = gradesSum / this.grades.length;
+            let visitedDays = 0;
+            let checkedDays = 0;
+
+
+            for (let i = 0; i < this.attendance.length; i++) {
+                if (this.attendance[i] === true || this.attendance[i] === false) {
+                    checkedDays++;
+                    if (this.attendance[i] === true) {
+                        visitedDays++
+                    }
+                }
+            }
+
+            const averageVisitedDays = checkedDays > 0 ? visitedDays / checkedDays : 0;
+
+            if (averageGrade >= 90 && averageVisitedDays >= 0.9) {
+                console.log('Молодець!')
+            } else if (averageGrade >= 90 || averageVisitedDays >= 0.9) {
+                console.log('Добре, але можна краще')
+            } else {
+                console.log('Редиска!');
+            }
+        }
+        this.present = function () {
+            checkAttendance(true);
+        }
+        this.absent = function () {
+            checkAttendance(false);
+        }
+
+        const checkAttendance = (status) => {
+            if (currentLesson < 25 && this.attendance[currentLesson] === undefined) {
+                this.attendance[currentLesson] = status;
+                currentLesson++;
+            } else {
+                alert('The classes are over');
+            }
+        }
+    }
+
+
+    const student1 = new Student("Іван", "Петренко", 2000);
+    student1.grades = [100, 95, 90];
+    for (let i = 0; i < 22; i++) student1.present();
+    for (let i = 0; i < 3; i++) student1.absent();
+    student1.summary();
+    student1.getAge();
+
+    console.log('---');
+
+    const student2 = new Student("Олена", "Коваль", 2001);
+    student2.grades = [88, 76, 82];
+    for (let i = 0; i < 10; i++) student2.present();
+    for (let i = 0; i < 10; i++) student2.absent();
+    student2.summary();
+    student2.getAge();
+
+
+    console.log('---');
+
+    const student3 = new Student("Максим", "Іванов", 1999);
+    student3.grades = [100, 100, 100];
+    for (let i = 0; i < 23; i++) student3.present();
+    student3.summary();
+    student3.getAge();
+
+
+
+</script>
+</body>
+</html>
