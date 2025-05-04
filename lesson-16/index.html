@@ -11,59 +11,58 @@
 
 <script>
     function Student(name, surname, birthYear) {
-        let currentLesson = 0;
+        this.currentLesson = 0;
 
         this.name = name;
         this.surname = surname;
         this.birthYear = birthYear;
         this.grades = [];
         this.attendance = new Array(25);
-        this.getAge = function () {
-            const currentYear = new Date().getFullYear();
-            console.log(currentYear - this.birthYear);
+    }
+
+    Student.prototype.checkAttendance = function(status) {
+        if (this.currentLesson < 25 && this.attendance[this.currentLesson] === undefined) {
+            this.attendance[this.currentLesson] = status;
+            this.currentLesson++;
+        } else {
+            alert('The classes are over');
         }
-        this.summary = function () {
-            let gradesSum = this.grades.reduce((sum, grade) => sum + grade, 0);
+    }
 
-            let averageGrade = gradesSum / this.grades.length;
-            let visitedDays = 0;
-            let checkedDays = 0;
+    Student.prototype.getAge = function () {
+        const currentYear = new Date().getFullYear();
+        console.log(currentYear - this.birthYear);
+    }
+    Student.prototype.summary = function () {
+        let gradesSum = this.grades.reduce((sum, grade) => sum + grade, 0);
+        let averageGrade = gradesSum / this.grades.length;
+        let visitedDays = 0;
+        let checkedDays = 0;
 
-
-            for (let i = 0; i < this.attendance.length; i++) {
-                if (this.attendance[i] === true || this.attendance[i] === false) {
-                    checkedDays++;
-                    if (this.attendance[i] === true) {
-                        visitedDays++
-                    }
+        for (let i = 0; i < this.attendance.length; i++) {
+            if (this.attendance[i] === true || this.attendance[i] === false) {
+                checkedDays++;
+                if (this.attendance[i] === true) {
+                    visitedDays++
                 }
             }
-
-            const averageVisitedDays = checkedDays > 0 ? visitedDays / checkedDays : 0;
-
-            if (averageGrade >= 90 && averageVisitedDays >= 0.9) {
-                console.log('Молодець!')
-            } else if (averageGrade >= 90 || averageVisitedDays >= 0.9) {
-                console.log('Добре, але можна краще')
-            } else {
-                console.log('Редиска!');
-            }
-        }
-        this.present = function () {
-            checkAttendance(true);
-        }
-        this.absent = function () {
-            checkAttendance(false);
         }
 
-        const checkAttendance = (status) => {
-            if (currentLesson < 25 && this.attendance[currentLesson] === undefined) {
-                this.attendance[currentLesson] = status;
-                currentLesson++;
-            } else {
-                alert('The classes are over');
-            }
+        const averageVisitedDays = checkedDays > 0 ? visitedDays / checkedDays : 0;
+
+        if (averageGrade >= 90 && averageVisitedDays >= 0.9) {
+            console.log('Молодець!')
+        } else if (averageGrade >= 90 || averageVisitedDays >= 0.9) {
+            console.log('Добре, але можна краще')
+        } else {
+            console.log('Редиска!');
         }
+    }
+    Student.prototype.present = function () {
+        this.checkAttendance(true);
+    }
+    Student.prototype.absent =  function () {
+        this.checkAttendance(false);
     }
 
 
@@ -91,6 +90,10 @@
     for (let i = 0; i < 23; i++) student3.present();
     student3.summary();
     student3.getAge();
+
+    console.log('---');
+
+    console.log(student1, student2, student3);
 
 
 
