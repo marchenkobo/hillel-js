@@ -1,0 +1,83 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Arial", "Roboto", sans-serif;
+  background: #1f1f1f;
+}
+
+.widget {
+  position: relative;
+  padding: 16px;
+  color: #fff;
+  border-radius: 8px;
+  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+}
+.widget__update {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.widget__update:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.widget__update:active {
+  opacity: 0.6;
+}
+.widget__error {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-content: center;
+  text-align: center;
+  border-radius: 8px;
+  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+}
+.widget__error p {
+  margin: 0;
+}
+.widget__error.is-visible {
+  display: grid;
+}
+
+.weather {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 24px;
+}
+.weather__state {
+  display: flex;
+  align-items: center;
+}
+.weather__temperature {
+  font-size: 24px;
+  font-weight: 700;
+}
+.weather__item {
+  font-size: 12px;
+}
+.weather__location {
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 8px;
+}
+
+.date {
+  display: flex;
+  column-gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.date__time, .date__current-day {
+  display: flex;
+}
+
+/*# sourceMappingURL=style.css.map */

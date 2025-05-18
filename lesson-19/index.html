@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ДЗ 19. Ajax та async…await</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="widget">
+  <div class="weather">
+    <div class="weather__state">
+      <img
+        class="weather__icon"
+        width="50"
+        height="50"
+        src=""
+        alt="">
+      <div class="weather__temperature"></div>
+    </div>
+
+    <div class="weather__info">
+      <div class="date">
+        <div class="date__time">
+          <span class="date__hours"></span>
+          <span class="date__minutes"></span>
+        </div>
+
+        <div class="date__current-day">
+          <span class="date__day"></span>
+          <span class="date__month"></span>
+          <span class="date__year"></span>
+        </div>
+      </div>
+      <div class="weather__location"></div>
+
+      <div class="weather__item">
+        <span class="weather__item-title">За вікном:</span>
+        <span class="weather__item-description weather-state"></span>
+      </div>
+
+      <div class="weather__item">
+        <span class="weather__item-title">Швидкість вітру:</span>
+        <span class="weather__item-description weather-wind-speed"></span>
+      </div>
+    </div>
+  </div>
+  <div class="widget__update">
+    <?xml version="1.0" encoding="iso-8859-1"?>
+    <svg fill="#ffffff" height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="0 0 489.533 489.533" xml:space="preserve">
+      <g>
+          <path d="M268.175,488.161c98.2-11,176.9-89.5,188.1-187.7c14.7-128.4-85.1-237.7-210.2-239.1v-57.6c0-3.2-4-4.9-6.7-2.9
+              l-118.6,87.1c-2,1.5-2,4.4,0,5.9l118.6,87.1c2.7,2,6.7,0.2,6.7-2.9v-57.5c87.9,1.4,158.3,76.2,152.3,165.6
+              c-5.1,76.9-67.8,139.3-144.7,144.2c-81.5,5.2-150.8-53-163.2-130c-2.3-14.3-14.8-24.7-29.2-24.7c-17.9,0-31.9,15.9-29.1,33.6
+              C49.575,418.961,150.875,501.261,268.175,488.161z"/>
+      </g>
+    </svg>
+  </div>
+  <div class="widget__error">
+    <p>Виникла помилка :(</p>
+    <p>Спробуйте оновити сторінку</p>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

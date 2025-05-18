@@ -10,3 +10,7 @@
 /hillel-js.iml
 /modules.xml
 /vcs.xml
+
+# Node.js
+node_modules/
+/node_modules/
