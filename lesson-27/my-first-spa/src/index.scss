@@ -1,0 +1,79 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light dark;
+}
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--link-color-hover);
+}
+
+body {
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  column-gap: 4px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: var(--button-border-color-hover);
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #fff;
+    --link-color: #324697;
+    --link-color-hover: #6073b1;
+    --button-bg-color: #efefef;
+    --button-border-color-hover: #324697;
+
+    --input-border-color: #324697;
+    --item-border-color: #324697;
+  }
+}
+
+.dark {
+  --text-color: #efefef;
+  --background-color: #151515;
+  --link-color: #978dac;
+  --link-color-hover: #847e93;
+  --button-bg-color: #e1e1e1;
+  --button-border-color-hover: #8147f6;
+}

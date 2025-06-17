@@ -1,0 +1,34 @@
+.list {
+  &__create {
+    display: flex;
+    justify-content:  center;
+    column-gap: 12px;
+  }
+
+  &__input {
+    min-width: 50%;
+    padding: 8px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
+  }
+
+  &__tasks {
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    padding: 8px;
+    border-bottom: 1px solid var(--item-border-color);
+  }
+
+  &__remove-button {
+    margin-left: auto;
+  }
+
+  &__checkbox:checked + &__text {
+    text-decoration: line-through;
+  }
+}
